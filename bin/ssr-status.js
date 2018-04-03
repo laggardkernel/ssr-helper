@@ -8,8 +8,8 @@ const ora = require('ora')
 const SocksProxyAgent = require('socks-proxy-agent')
 
 let str = [chalk.green('Running'), chalk.red('Stopped')]
-let res = shell.exec('sudo cat /var/run/shadowsocksr.pid', {silent: true})
-process.stdout.write('SSR Python Client Status: ')
+let res = shell.exec('cat /usr/local/var/run/shadowsocksr-libev.pid', { silent: true })
+process.stdout.write('SSR libev Client Status: ')
 if (res.code === 0) {
   let res1 = shell.exec('ps ' + res.stdout, {silent: true})
   console.log(str[res1.code])

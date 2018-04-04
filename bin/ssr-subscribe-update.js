@@ -39,6 +39,7 @@ new Promise((resolve, reject) => {
   }))
 }).then(proxy => {
   //fetch and update
+  config.set('servers', []) // force refresh subscription
   while (i--) {
     const spinner = ora(chalk.green(chalk.green(list[i]))).start()
     request('GET', list[i], { agent: proxy })
